@@ -1,0 +1,47 @@
+
+services:
+  # MongoDB container
+  mongo:
+    image: mongo:latest  # Use the official MongoDB image
+    container_name: mongo
+    volumes:
+      - mongo-data:/data/db  # Mount a volume to persist data
+    networks:
+      - app-network
+
+  # NestJS container
+  backend:
+    build:
+      context: ./backend  # Path to NestJS project
+    container_name: backend
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/tasksdb  # Pass MONGO_URI as an environment variable
+    depends_on:
+      - mongo  # Wait for MongoDB to start
+    networks:
+      - app-network
+    ports:
+      - 3001:3001  # Expose the NestJS backend port
+
+  # React container
+  frontend:
+    build:
+      context: ./frontend/task-manager-frontend # Path to React project
+    container_name: frontend
+    depends_on:
+      - backend  # Wait for the backend to start
+    networks:
+      - app-network
+    ports:
+      - 3000:3000  # Expose the React frontend port
+    environment:
+      - REACT_APP_API_URL=http://backend:3001  # Use the backend service name for communication
+
+# Define the network so that the containers can communicate
+networks:
+  app-network:
+    driver: bridge
+
+# Define named volume for MongoDB data persistence
+volumes:
+  mongo-data:

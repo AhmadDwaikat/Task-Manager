@@ -1,0 +1,154 @@
+.task-list {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9fafb;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.task-list h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.task-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.task-list li {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.task-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.task-list h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.task-list p {
+  font-size: 1rem;
+  color: #666;
+  margin: 5px 0;
+}
+
+.task-list select {
+  padding: 8px;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.task-list select:hover {
+  border-color: #007bff;
+}
+
+.task-list button {
+  padding: 10px 15px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #dc3545;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+.task-list button:hover {
+  background-color: #c82333;
+}
+
+.no-tasks {
+  text-align: center;
+  color: #777;
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+/* New styles for task editing */
+.task-editing-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.task-edit-input,
+.task-edit-textarea,
+.task-edit-select {
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  color: #333;
+  transition: border-color 0.3s;
+}
+
+.task-edit-input:hover,
+.task-edit-textarea:hover,
+.task-edit-select:hover {
+  border-color: #007bff;
+}
+
+.task-edit-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.task-save-btn {
+  background-color: #28a745;
+}
+
+.task-save-btn:hover {
+  background-color: #218838;
+}
+
+.task-cancel-btn {
+  background-color: #6c757d;
+}
+
+.task-cancel-btn:hover {
+  background-color: #5a6268;
+}
+
+.task-view {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-edit-btn {
+  background-color: #007bff;
+}
+
+.task-edit-btn:hover {
+  background-color: #0056b3;
+}
+
+.task-delete-btn {
+  background-color: #dc3545;
+}
+
+.task-delete-btn:hover {
+  background-color: #c82333;
+}
